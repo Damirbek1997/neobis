@@ -1,15 +1,19 @@
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
-public class main {
+public class test2 {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        float n = scanner.nextFloat();
-        float total = 0;
+        double n = scanner.nextDouble();
+        double total = 0;
         int hundred = 0, fifty = 0, twenty = 0, ten = 0, five = 0, two = 0;
         int one = 0, half = 0, quarter = 0, oneTenth = 0, fiveHundredths = 0, oneHundredths = 0;
+        n = round(n, 2);
 
-        while(true) {
+        while(total < n) {
+            total = round(total, 2);
             if (total + 100 <= n) {
                 hundred++;
                 total += 100;
@@ -31,13 +35,13 @@ public class main {
             } else if (total + 1 <= n) {
                 one++;
                 total += 1;
-            } else if (total + 0.5 <= n) {
+            } else if (total + 0.50 <= n) {
                 half++;
                 total += 0.5;
             } else if (total + 0.25 <= n) {
                 quarter++;
                 total += 0.25;
-            } else if (total + 0.1 <= n) {
+            } else if (total + 0.10 <= n) {
                 oneTenth++;
                 total += 0.1;
             } else if (total + 0.05 <= n) {
@@ -45,9 +49,10 @@ public class main {
                 total += 0.05;
             } else if (total + 0.01 <= n) {
                 oneHundredths++;
-                total += 0.01;
-            } else
-                break;
+                total = total + 0.01;
+            }
+
+            System.out.println(total);
         }
 
         System.out.println("NOTAS:");
@@ -63,6 +68,14 @@ public class main {
         System.out.println(quarter + " moeda(s) de R$ 0.25");
         System.out.println(oneTenth + " moeda(s) de R$ 0.10");
         System.out.println(fiveHundredths + " moeda(s) de R$ 0.05");
-        System.out.print(oneHundredths + " moeda(s) de R$ 0.01");
+        System.out.println(oneHundredths + " moeda(s) de R$ 0.01");
+    }
+
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
