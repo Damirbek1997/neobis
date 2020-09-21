@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class test9 {
+public class Test9 {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> matches = new ArrayList<>();

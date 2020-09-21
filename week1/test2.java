@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
-public class test2 {
+public class Test2 {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         double n = scanner.nextDouble();

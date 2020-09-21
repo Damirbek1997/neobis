@@ -1,7 +1,7 @@
 import java.io.IOException;
 
-public class test7 {
-    public static void main(String[] args) throws IOException {
+public class Test7 {
+    public static void main(String[] args) {
         int count = 0;
         for (double i = 0; i <= 2; i += 0.2) {
             for (double j = 1; j <= 3; j++) {
