@@ -1,0 +1,31 @@
+1) 2602 - Basic Select
+select name from customers 
+where state = 'RS';
+
+2) 2603 - Customer Address
+select name, street from customers 
+where city = 'Porto Alegre';
+
+3) 2604 - Under 10 or Greater Than 100
+select id, name from products 
+where price < 10 or price > 100;
+
+4) 2605 - Executive Representatives
+select products.name, providers.name
+from products
+
+inner join providers on products.id_providers = providers.id
+
+where id_categories = 6;
+
+5) 2606 - Categories
+select products.id, products.name from products
+ 
+inner join categories on products.id_categories = categories.id
+
+where categories.name like 'super%';
+
+6) 2607 - Providers' City in Alphabetical Order
+select distinct city from providers
+
+order by city;
