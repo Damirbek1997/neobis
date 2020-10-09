@@ -4,16 +4,16 @@ public class Product {
     private String description;
     private Integer price;
     private boolean isAvailable;
-    private Integer id_subCategory;
-    private Integer id_Category;
+    private Integer idSubCategory;
+    private Integer idCategory;
 
-    public Product(String name, String description, Integer price, boolean isAvailable, Integer id_subCategory, Integer id_Category) {
+    public Product(String name, String description, Integer price, boolean isAvailable, Integer idSubCategory, Integer idCategory) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.isAvailable = isAvailable;
-        this.id_subCategory = id_subCategory;
-        this.id_Category = id_Category;
+        this.idSubCategory = idSubCategory;
+        this.idCategory = idCategory;
     }
 
     public Product() {
@@ -59,19 +59,19 @@ public class Product {
         isAvailable = available;
     }
 
-    public Integer getId_subCategory() {
-        return id_subCategory;
+    public Integer getIdSubCategory() {
+        return idSubCategory;
     }
 
-    public void setId_subCategory(Integer id_subCategory) {
-        this.id_subCategory = id_subCategory;
+    public void setIdSubCategory(Integer idSubCategory) {
+        this.idSubCategory = idSubCategory;
     }
 
-    public Integer getId_Category() {
-        return id_Category;
+    public Integer getIdCategory() {
+        return idCategory;
     }
 
-    public void setId_Category(Integer id_Category) {
-        this.id_Category = id_Category;
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 }

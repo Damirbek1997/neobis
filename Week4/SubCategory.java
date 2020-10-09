@@ -2,12 +2,12 @@ public class SubCategory {
     private int id;
     private String name;
     private boolean isAvailable;
-    private Integer id_category;
+    private Integer idCategory;
 
-    public SubCategory(String name, boolean isAvailable, Integer id_category) {
+    public SubCategory(String name, boolean isAvailable, Integer idCategory) {
         this.name = name;
         this.isAvailable = isAvailable;
-        this.id_category = id_category;
+        this.idCategory = idCategory;
     }
 
     public SubCategory() {
@@ -37,11 +37,11 @@ public class SubCategory {
         isAvailable = available;
     }
 
-    public Integer getId_category() {
-        return id_category;
+    public Integer getIdCategory() {
+        return idCategory;
     }
 
-    public void setId_category(Integer id_category) {
-        this.id_category = id_category;
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 }
