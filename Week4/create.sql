@@ -69,7 +69,7 @@ alter table articles
 add foreign key (id_category) references categories (id);
 
 alter table orders
-add foreign key (orderProduct) references products (id);
+add foreign key (id_orderProduct) references products (id);
 alter table orders
 add foreign key (id_card) references cards (id);
 
