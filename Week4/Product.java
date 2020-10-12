@@ -1,19 +1,21 @@
+import java.util.List;
+
 public class Product {
     private Integer id;
     private String name;
-    private String description;
     private Integer price;
     private boolean isAvailable;
-    private Integer idSubCategory;
-    private Integer idCategory;
+    private List<Article> articleId;
+    private List<SubCategory> subCategoryId;
+    private List<Category> categoryId;
 
-    public Product(String name, String description, Integer price, boolean isAvailable, Integer idSubCategory, Integer idCategory) {
+    public Product(String name, Integer price, boolean isAvailable, List<Article> articleId, List<SubCategory> subCategoryId, List<Category> categoryId) {
         this.name = name;
-        this.description = description;
         this.price = price;
         this.isAvailable = isAvailable;
-        this.idSubCategory = idSubCategory;
-        this.idCategory = idCategory;
+        this.articleId = articleId;
+        this.subCategoryId = subCategoryId;
+        this.categoryId = categoryId;
     }
 
     public Product() {
@@ -35,14 +37,6 @@ public class Product {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Integer getPrice() {
         return price;
     }
@@ -59,19 +53,27 @@ public class Product {
         isAvailable = available;
     }
 
-    public Integer getIdSubCategory() {
-        return idSubCategory;
+    public List<Article> getArticleId() {
+        return articleId;
     }
 
-    public void setIdSubCategory(Integer idSubCategory) {
-        this.idSubCategory = idSubCategory;
+    public void setArticleId(List<Article> articleId) {
+        this.articleId = articleId;
     }
 
-    public Integer getIdCategory() {
-        return idCategory;
+    public List<SubCategory> getSubCategoryId() {
+        return subCategoryId;
     }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
+    public void setSubCategoryId(List<SubCategory> subCategoryId) {
+        this.subCategoryId = subCategoryId;
+    }
+
+    public List<Category> getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(List<Category> categoryId) {
+        this.categoryId = categoryId;
     }
 }

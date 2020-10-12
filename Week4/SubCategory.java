@@ -1,13 +1,15 @@
+import java.util.List;
+
 public class SubCategory {
     private int id;
     private String name;
     private boolean isAvailable;
-    private Integer idCategory;
+    private List<Category> categoryId;
 
-    public SubCategory(String name, boolean isAvailable, Integer idCategory) {
+    public SubCategory(String name, boolean isAvailable, List<Category> categoryId) {
         this.name = name;
         this.isAvailable = isAvailable;
-        this.idCategory = idCategory;
+        this.categoryId = categoryId;
     }
 
     public SubCategory() {
@@ -37,11 +39,11 @@ public class SubCategory {
         isAvailable = available;
     }
 
-    public Integer getIdCategory() {
-        return idCategory;
+    public List<Category> getCategoryId() {
+        return categoryId;
     }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
+    public void setCategoryId(List<Category> categoryId) {
+        this.categoryId = categoryId;
     }
 }

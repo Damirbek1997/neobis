@@ -7,13 +7,15 @@ public class Order {
     private String userEmail;
     private BigDecimal total;
     private Date orderDate;
-    private List<Product> orderProduct;
+    private List<Product> orderProductId;
+    private List<Card> cardId;
 
-    public Order(String userEmail, BigDecimal total, Date orderDate, List<Product> orderProduct) {
+    public Order(String userEmail, BigDecimal total, Date orderDate, List<Product> orderProductId, List<Card> cardId) {
         this.userEmail = userEmail;
         this.total = total;
         this.orderDate = orderDate;
-        this.orderProduct = orderProduct;
+        this.orderProductId = orderProductId;
+        this.cardId = cardId;
     }
 
     public Order() {
@@ -51,11 +53,19 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public List<Product> getOrderProduct() {
-        return orderProduct;
+    public List<Product> getOrderProductId() {
+        return orderProductId;
     }
 
-    public void setOrderProduct(List<Product> orderProduct) {
-        this.orderProduct = orderProduct;
+    public void setOrderProductId(List<Product> orderProductId) {
+        this.orderProductId = orderProductId;
+    }
+
+    public List<Card> getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(List<Card> cardId) {
+        this.cardId = cardId;
     }
 }

@@ -4,15 +4,19 @@ public class Category {
     private Integer id;
     private String name;
     private boolean isAvailable;
-    private List<SubCategory> subCategory;
+    private List<Category> subCategory;
 
-    public Category(String name, boolean isAvailable, List<SubCategory> subCategory) {
+    public Category(String name, boolean isAvailable, List<Category> subCategory) {
         this.name = name;
         this.isAvailable = isAvailable;
         this.subCategory = subCategory;
     }
 
     public Category() {
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -39,11 +43,11 @@ public class Category {
         isAvailable = available;
     }
 
-    public List<SubCategory> getSubCategory() {
+    public List<Category> getSubCategory() {
         return subCategory;
     }
 
-    public void setSubCategory(List<SubCategory> subCategory) {
+    public void setSubCategory(List<Category> subCategory) {
         this.subCategory = subCategory;
     }
 }
