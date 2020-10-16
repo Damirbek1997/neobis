@@ -1,90 +1,90 @@
-create database week4;
-use week4;
+create database week5;
+use week5;
 
 create table cards (
     id int(50) primary key auto_increment,
-    cardNumber varchar(100) not null,
-    id_user int(50)
+    card_number varchar(100) not null,
+    user_id int(50)
 );
 
 create table articles (
     id int(50) primary key auto_increment,
     title varchar(100) not null,
     description varchar(100) not null,
-    id_product int(50),
-    id_subCategory int(50),
-    id_category int(50)
+    product_id int(50),
+    sub_category_id int(50),
+    category_id int(50)
 );
 
 create table orders (
-	id int(50) primary key auto_increment,
-	userEmail varchar(100) not null,
-	total int(50) not null,
-	orderDate varchar(100) not null,
-	id_orderProduct int(50),
-	id_card int(50)
+    id int(50) primary key auto_increment,
+    user_email varchar(100) not null,
+    total int(50) not null,
+    order_date varchar(100) not null,
+    order_product_id int(50),
+    card_id int(50)
 );
 
 create table products (
-	id int(50) primary key auto_increment,
-	name varchar(100) not null,
-	description varchar(100) not null,
-	price int(50) not null,
-	isAvailable bit,
-	id_article int(50),
-	id_subCategory int(50),
-	id_category int(50)
+    id int(50) primary key auto_increment,
+    name varchar(100) not null,
+    description varchar(100) not null,
+    price int(50) not null,
+    is_available bit,
+    article_id int(50),
+    sub_category_id int(50),
+    category_id int(50)
 );
 
 create table users (
-	id int(50) primary key auto_increment,
-	name varchar(100) not null,
-	password varchar(100) not null,
-	email varchar(100)  not null,
-	id_card int(50)
+    id int(50) primary key auto_increment,
+    name varchar(100) not null,
+    password varchar(100) not null,
+    email varchar(100)  not null,
+    card_id int(50)
 );
 
-create table subCategories (
-	id int(50) primary key auto_increment,
-	name varchar(100) not null,
-	isAvailable bit,
-	id_category int(50)
+create table sub_categories (
+    id int(50) primary key auto_increment,
+    name varchar(100) not null,
+    is_available bit,
+    category_id int(50)
 );
 
 create table categories (
-	id int(50) primary key auto_increment,
-	name varchar(100) not null,
-	isAvailable bit,
-	id_subCategory int(50)
+    id int(50) primary key auto_increment,
+    name varchar(100) not null,
+    is_available bit,
+    sub_category_id int(50)
 );
 
 alter table cards
-add foreign key (id_user) references users (id);
+add foreign key (user_id) references users (id);
 
 alter table articles
-add foreign key (id_product) references products (id);
+add foreign key (product_id) references products (id);
 alter table articles
-add foreign key (id_subCategory) references subCategories (id);
+add foreign key (sub_category_id) references sub_categories (id);
 alter table articles
-add foreign key (id_category) references categories (id);
+add foreign key (category_id) references categories (id);
 
 alter table orders
-add foreign key (id_orderProduct) references products (id);
+add foreign key (order_product_id) references products (id);
 alter table orders
-add foreign key (id_card) references cards (id);
+add foreign key (card_id) references cards (id);
 
 alter table products
-add foreign key (id_subCategory) references subCategories (id);
+add foreign key (sub_category_id) references sub_categories (id);
 alter table products
-add foreign key (id_category) references categories (id);
+add foreign key (category_id) references categories (id);
 alter table products
-add foreign key (id_article) references articles (id);
+add foreign key (article_id) references articles (id);
 
 alter table users
-add foreign key (id_card) references cards (id);
+add foreign key (card_id) references cards (id);
 
-alter table subCategories
-add foreign key (id_category) references categories (id);
+alter table sub_categories
+add foreign key (category_id) references categories (id);
 
 alter table categories
-add foreign key (id_subCategory) references subCategories (id);
+add foreign key (sub_category_id) references sub_categories (id);

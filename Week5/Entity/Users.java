@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.Entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -18,12 +19,15 @@ public class Users {
     @Column(name = "email", length = 100)
     private String email;
 
-//    private List<Card> cardId;
+    @OneToMany
+    @JoinColumn(name = "card_id", referencedColumnName = "id")
+    private List<Card> cardId;
 
-    public Users(String name, String password, String email) {
+    public Users(String name, String password, String email, List<Card> cardId) {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.cardId = cardId;
     }
 
     public Users() {
@@ -59,5 +63,13 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Card> getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(List<Card> cardId) {
+        this.cardId = cardId;
     }
 }
