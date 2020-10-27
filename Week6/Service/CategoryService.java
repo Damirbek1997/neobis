@@ -40,7 +40,6 @@ public class CategoryService {
                     category.setId(category.getId());
                     category.setName(category.getName());
                     category.setAvailable(category.isAvailable());
-                    category.setSubCategory(category.getSubCategory());
 
                     return categoryRepository.save(category);
                 }).orElseThrow(Exception::new);

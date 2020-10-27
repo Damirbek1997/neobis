@@ -16,14 +16,9 @@ public class Category {
     @Column(name = "is_available")
     private boolean isAvailable;
 
-    @OneToMany
-    @JoinColumn(name = "sub_category_id")
-    private List<SubCategory> subCategoryId;
-
-    public Category(String name, boolean isAvailable, List<SubCategory> subCategoryId) {
+    public Category(String name, boolean isAvailable) {
         this.name = name;
         this.isAvailable = isAvailable;
-        this.subCategoryId = subCategoryId;
     }
 
     public Category() {
@@ -51,13 +46,5 @@ public class Category {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
-    }
-
-    public List<SubCategory> getSubCategory() {
-        return subCategoryId;
-    }
-
-    public void setSubCategory(List<SubCategory> subCategoryId) {
-        this.subCategoryId = subCategoryId;
     }
 }
