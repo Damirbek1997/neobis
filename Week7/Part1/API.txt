@@ -1,0 +1,54 @@
+/
+POST:   /     - create and add new item to the table
+GET:    /     - get all items from the table
+GET:    /{id} - get item by id from the table
+PUT:    /{id} - change item by id in the table
+DELETE: /{id} - delete item by id from the table
+
+/article/
+
+POST:   /article/     - create and add new item to the table
+GET:    /article/     - get all items from the table
+GET:    /article/{id} - get item by id from the table
+PUT:    /article/{id} - change item by id in the table
+DELETE: /article/{id} - delete item by id from the table
+
+/card/
+
+POST:   /card/     - create and add new item to the table
+GET:    /card/     - get all items from the table
+GET:    /card/{id} - get item by id from the table
+PUT:    /card/{id} - change item by id in the table
+DELETE: /card/{id} - delete item by id from the table
+
+/category/
+
+POST:   /category/     - create and add new item to the table
+GET:    /category/     - get all items from the table
+GET:    /category/{id} - get item by id from the table
+PUT:    /category/{id} - change item by id in the table
+DELETE: /category/{id} - delete item by id from the table
+
+/subCategory/
+
+POST:   /subCategory/     - create and add new item to the table
+GET:    /subCategory/     - get all items from the table
+GET:    /subCategory/{id} - get item by id from the table
+PUT:    /subCategory/{id} - change item by id in the table
+DELETE: /subCategory/{id} - delete item by id from the table
+
+/product/
+
+POST:   /product/     - create and add new item to the table
+GET:    /product/     - get all items from the table
+GET:    /product/{id} - get item by id from the table
+PUT:    /product/{id} - change item by id in the table
+DELETE: /product/{id} - delete item by id from the table
+
+/order/
+
+POST:   /order/     - create and add new item to the table
+GET:    /order/     - get all items from the table
+GET:    /order/{id} - get item by id from the table
+PUT:    /order/{id} - change item by id in the table
+DELETE: /order/{id} - delete item by id from the table
