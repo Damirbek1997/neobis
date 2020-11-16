@@ -19,15 +19,10 @@ public class Users {
     @Column(name = "email", length = 100)
     private String email;
 
-    @OneToMany
-    @JoinColumn(name = "card_id", referencedColumnName = "id")
-    private List<Card> cardId;
-
-    public Users(String name, String password, String email, List<Card> cardId) {
+    public Users(String name, String password, String email) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.cardId = cardId;
     }
 
     public Users() {
@@ -63,13 +58,5 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Card> getCardId() {
-        return cardId;
-    }
-
-    public void setCardId(List<Card> cardId) {
-        this.cardId = cardId;
     }
 }

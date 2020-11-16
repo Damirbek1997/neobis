@@ -34,15 +34,11 @@ public class ArticleService {
     }
 
     // Method to change item by id
-    public Article changeById (Integer id, Article article) throws Exception {
+    public Article changeById (Integer id, Article newArticle) throws Exception {
         return articleRepository.findById(id)
-                .map(article1 -> {
-                    article.setId(article.getId());
-                    article.setTitle(article.getTitle());
-                    article.setDescription(article.getDescription());
-                    article.setProductId(article.getProductId());
-                    article.setSubCategoryId(article.getSubCategoryId());
-                    article.setCategoryId(article.getCategoryId());
+                .map(article -> {
+                    article.setTitle(newArticle.getTitle());
+                    article.setDescription(newArticle.getDescription());
 
                     return articleRepository.save(article);
                 }).orElseThrow(Exception::new);

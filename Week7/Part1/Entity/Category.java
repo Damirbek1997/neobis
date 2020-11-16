@@ -1,7 +1,6 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -28,7 +27,7 @@ public class Category {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

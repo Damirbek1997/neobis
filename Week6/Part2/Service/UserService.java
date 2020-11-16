@@ -34,13 +34,12 @@ public class UserService {
     }
 
     // Method to change item by id
-    public Users changeById (Integer id, Users users) throws Exception {
+    public Users changeById (Integer id, Users newUser) throws Exception {
         return userRepository.findById(id)
-                .map(subCategory1 -> {
-                    users.setId(users.getId());
-                    users.setName(users.getName());
-                    users.setPassword(users.getPassword());
-                    users.setEmail(users.getEmail());
+                .map(users -> {
+                    users.setName(newUser.getName());
+                    users.setPassword(newUser.getPassword());
+                    users.setEmail(newUser.getEmail());
 
                     return userRepository.save(users);
                 }).orElseThrow(Exception::new);

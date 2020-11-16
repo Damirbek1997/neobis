@@ -1,14 +1,13 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "sub_categories")
 public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "name", length = 100)
     private String name;
@@ -16,24 +15,24 @@ public class SubCategory {
     @Column(name = "is_available")
     private boolean isAvailable;
 
-    @OneToMany
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private List<Category> categoryId;
+    @ManyToOne
+    @JoinColumn(name="category_id", referencedColumnName = "id")
+    private Category categories;
 
-    public SubCategory(String name, boolean isAvailable, List<Category> categoryId) {
+    public SubCategory(String name, boolean isAvailable, Category categories) {
         this.name = name;
         this.isAvailable = isAvailable;
-        this.categoryId = categoryId;
+        this.categories = categories;
     }
 
     public SubCategory() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,11 +52,11 @@ public class SubCategory {
         isAvailable = available;
     }
 
-    public List<Category> getCategoryId() {
-        return categoryId;
+    public Category getCategories() {
+        return categories;
     }
 
-    public void setCategoryId(List<Category> categoryId) {
-        this.categoryId = categoryId;
+    public void setCategories(Category categories) {
+        this.categories = categories;
     }
 }

@@ -34,13 +34,12 @@ public class SubCategoryService {
     }
 
     // Method to change item by id
-    public SubCategory changeById (Integer id, SubCategory subCategory) throws Exception {
+    public SubCategory changeById (Integer id, SubCategory newSubCategory) throws Exception {
         return subCategoryRepository.findById(id)
-                .map(subCategory1 -> {
-                    subCategory.setId(subCategory.getId());
-                    subCategory.setName(subCategory.getName());
-                    subCategory.setAvailable(subCategory.isAvailable());
-                    subCategory.setCategoryId(subCategory.getCategoryId());
+                .map(subCategory -> {
+                    subCategory.setName(newSubCategory.getName());
+                    subCategory.setAvailable(newSubCategory.isAvailable());
+                    subCategory.setCategories(newSubCategory.getCategories());
 
                     return subCategoryRepository.save(subCategory);
                 }).orElseThrow(Exception::new);

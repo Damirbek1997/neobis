@@ -34,12 +34,11 @@ public class CategoryService {
     }
 
     // Method to change item by id
-    public Category changeById (Integer id, Category category) throws Exception {
+    public Category changeById (Integer id, Category newCategory) throws Exception {
         return categoryRepository.findById(id)
-                .map(category1 -> {
-                    category.setId(category.getId());
-                    category.setName(category.getName());
-                    category.setAvailable(category.isAvailable());
+                .map(category -> {
+                    category.setName(newCategory.getName());
+                    category.setAvailable(newCategory.isAvailable());
 
                     return categoryRepository.save(category);
                 }).orElseThrow(Exception::new);

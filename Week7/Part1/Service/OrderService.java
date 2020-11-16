@@ -34,15 +34,13 @@ public class OrderService {
     }
 
     // Method to change item by id
-    public Order changeById (Integer id, Order order) throws Exception {
+    public Order changeById (Integer id, Order newOrder) throws Exception {
         return orderRepository.findById(id)
-                .map(order1 -> {
-                    order.setId(order.getId());
-                    order.setUserEmail(order.getUserEmail());
-                    order.setTotal(order.getTotal());
-                    order.setOrderDate(order.getOrderDate());
-                    order.setOrderProductId(order.getOrderProductId());
-                    order.setCardId(order.getCardId());
+                .map(order -> {
+                    order.setUserEmail(newOrder.getUserEmail());
+                    order.setTotal(newOrder.getTotal());
+                    order.setOrderDate(newOrder.getOrderDate());
+                    order.setProduct(newOrder.getProduct());
 
                     return orderRepository.save(order);
                 }).orElseThrow(Exception::new);

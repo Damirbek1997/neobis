@@ -41,7 +41,7 @@ public class SubCategoryController {
 
     // API to delete item by id
     @DeleteMapping("/{id}")
-    private void delete(@P("id") Integer id) {
+    private void delete(@PathVariable("id") Integer id) {
         subCategoryService.deleteById(id);
     }
 }

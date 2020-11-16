@@ -34,16 +34,16 @@ public class ProductService {
     }
 
     // Method to change item by id
-    public Product changeById (Integer id, Product product) throws Exception {
+    public Product changeById (Integer id, Product newProduct) throws Exception {
         return productRepository.findById(id)
-                .map(product1 -> {
-                    product.setId(product.getId());
-                    product.setName(product.getName());
-                    product.setPrice(product.getPrice());
-                    product.setAvailable(product.isAvailable());
-                    product.setArticleId(product.getArticleId());
-                    product.setSubCategoryId(product.getSubCategoryId());
-                    product.setCategoryId(product.getCategoryId());
+                .map(product -> {
+                    product.setName(newProduct.getName());
+                    product.setPrice(newProduct.getPrice());
+                    product.setAvailable(newProduct.isAvailable());
+                    product.setOrder(newProduct.getOrder());
+                    product.setArticles(newProduct.getArticles());
+                    product.setSubCategory(newProduct.getSubCategory());
+                    product.setCategory(newProduct.getCategory());
 
                     return productRepository.save(product);
                 }).orElseThrow(Exception::new);

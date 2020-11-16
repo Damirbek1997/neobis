@@ -1,7 +1,7 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -19,25 +19,29 @@ public class Product {
     @Column(name = "is_available")
     private boolean isAvailable;
 
-    @OneToMany
-    @JoinColumn(name = "article_id", referencedColumnName = "id")
-    private List<Article> articleId;
+    @ManyToMany
+    private Set<Order> order;
 
-    @OneToMany
+    @ManyToOne
+    @JoinColumn(name="article_id", referencedColumnName = "id")
+    private Article articles;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sub_category_id")
-    private List<SubCategory> subCategoryId;
+    private SubCategory subCategory;
 
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    private List<Category> categoryId;
+    private Category category;
 
-    public Product(String name, Integer price, boolean isAvailable, List<Article> articleId, List<SubCategory> subCategoryId, List<Category> categoryId) {
+    public Product(String name, Integer price, boolean isAvailable, Set<Order> order, Article articles, SubCategory subCategory, Category category) {
         this.name = name;
         this.price = price;
         this.isAvailable = isAvailable;
-        this.articleId = articleId;
-        this.subCategoryId = subCategoryId;
-        this.categoryId = categoryId;
+        this.order = order;
+        this.articles = articles;
+        this.subCategory = subCategory;
+        this.category = category;
     }
 
     public Product() {
@@ -75,27 +79,35 @@ public class Product {
         isAvailable = available;
     }
 
-    public List<Article> getArticleId() {
-        return articleId;
+    public Set<Order> getOrder() {
+        return order;
     }
 
-    public void setArticleId(List<Article> articleId) {
-        this.articleId = articleId;
+    public void setOrder(Set<Order> order) {
+        this.order = order;
     }
 
-    public List<SubCategory> getSubCategoryId() {
-        return subCategoryId;
+    public Article getArticles() {
+        return articles;
     }
 
-    public void setSubCategoryId(List<SubCategory> subCategoryId) {
-        this.subCategoryId = subCategoryId;
+    public void setArticles(Article articles) {
+        this.articles = articles;
     }
 
-    public List<Category> getCategoryId() {
-        return categoryId;
+    public SubCategory getSubCategory() {
+        return subCategory;
     }
 
-    public void setCategoryId(List<Category> categoryId) {
-        this.categoryId = categoryId;
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

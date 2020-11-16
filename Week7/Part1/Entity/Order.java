@@ -3,7 +3,7 @@ package com.example.demo.Entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -21,20 +21,14 @@ public class Order {
     @Column(name = "order_date")
     private Date orderDate;
 
-    @OneToMany
-    @JoinColumn(name = "order_product_id", referencedColumnName = "id")
-    private List<Product> orderProductId;
+    @ManyToMany
+    private Set<Product> Product;
 
-    @OneToMany
-    @JoinColumn(name = "card_id", referencedColumnName = "id")
-    private List<Card> cardId;
-
-    public Order(String userEmail, BigDecimal total, Date orderDate, List<Product> orderProductId, List<Card> cardId) {
+    public Order(String userEmail, BigDecimal total, Date orderDate, Set<Product> product) {
         this.userEmail = userEmail;
         this.total = total;
         this.orderDate = orderDate;
-        this.orderProductId = orderProductId;
-        this.cardId = cardId;
+        Product = product;
     }
 
     public Order() {
@@ -72,19 +66,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public List<Product> getOrderProductId() {
-        return orderProductId;
+    public Set<Product> getProduct() {
+        return Product;
     }
 
-    public void setOrderProductId(List<Product> orderProductId) {
-        this.orderProductId = orderProductId;
-    }
-
-    public List<Card> getCardId() {
-        return cardId;
-    }
-
-    public void setCardId(List<Card> cardId) {
-        this.cardId = cardId;
+    public void setProduct(Set<Product> product) {
+        Product = product;
     }
 }
