@@ -1,0 +1,1 @@
+I launched docker with command 'docker-compose up', than checked if all works fine. Opened Postman and performed GET request, it gave me 'access forbidden' cause there is no 'token'. I authenticated after all requests works fine.
