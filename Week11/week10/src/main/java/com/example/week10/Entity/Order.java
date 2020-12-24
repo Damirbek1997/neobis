@@ -1,7 +1,10 @@
 package com.example.week10.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -12,20 +15,21 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "user_email", length = 100)
-    private String userEmail;
+    @Column(name = "username", length = 100)
+    private String username;
 
     @Column(name = "total")
     private BigDecimal total;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy, timezone = UTC")
     @Column(name = "order_date")
     private Date orderDate;
 
     @ManyToMany
     private Set<Product> product;
 
-    public Order(String userEmail, BigDecimal total, Date orderDate, Set<Product> product) {
-        this.userEmail = userEmail;
+    public Order(String username, BigDecimal total, Date orderDate, Set<Product> product) {
+        this.username = username;
         this.total = total;
         this.orderDate = orderDate;
         this.product = product;
@@ -42,12 +46,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public BigDecimal getTotal() {

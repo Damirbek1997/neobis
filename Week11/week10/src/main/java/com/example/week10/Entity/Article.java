@@ -15,7 +15,7 @@ public class Article {
     @Column(name = "description", length = 100)
     private String description;
 
-    public Article(String title, String description) {
+    public Article(String title, String description, Product product) {
         this.title = title;
         this.description = description;
     }

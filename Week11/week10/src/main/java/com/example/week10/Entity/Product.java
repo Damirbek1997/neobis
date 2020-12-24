@@ -1,7 +1,6 @@
 package com.example.week10.Entity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -19,16 +18,16 @@ public class Product {
     @Column(name = "is_available")
     private boolean isAvailable;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="article_id", referencedColumnName = "id")
     private Article articles;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sub_category_id")
+    @JoinColumn(name = "sub_category_id", referencedColumnName = "id")
     private SubCategory subCategory;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     public Product(String name, Integer price, boolean isAvailable, Article articles, SubCategory subCategory, Category category) {

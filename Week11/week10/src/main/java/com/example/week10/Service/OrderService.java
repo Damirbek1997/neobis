@@ -3,8 +3,11 @@ package com.example.week10.Service;
 import com.example.week10.Entity.Order;
 import com.example.week10.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +40,7 @@ public class OrderService {
     public Order changeById (Integer id, Order newOrder) throws Exception {
         return orderRepository.findById(id)
                 .map(order -> {
-                    order.setUserEmail(newOrder.getUserEmail());
+                    order.setUsername(newOrder.getUsername());
                     order.setTotal(newOrder.getTotal());
                     order.setOrderDate(newOrder.getOrderDate());
                     order.setProduct(newOrder.getProduct());
